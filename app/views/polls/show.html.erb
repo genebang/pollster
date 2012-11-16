@@ -1,8 +1,12 @@
-<h2>Show Poll</h2>
+<h3>Show Poll</h3>
 
-<h3><%= @poll.title %></h3>
-<h4><%= @poll.question %></h4>
+<h4><%= @poll.title %></h4>
+<div>
+<%= simple_format(@poll.question) %>
+</div>
 
-<%= render 'answers/form' %>
+<%= render @poll.responses %>
+
+<%= render 'responses/form' %>
 
 <%= link_to 'Back', polls_path %>

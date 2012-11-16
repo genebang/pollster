@@ -1,7 +1,7 @@
 class AddQuetsionToPolls < ActiveRecord::Migration
   
   def up
-    add_column :polls, :question, :string
+    add_column :polls, :question, :text
   end
   
   def down

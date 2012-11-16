@@ -5,7 +5,7 @@
 
 <% @polls.each do |poll| %>
 	<h3><%= poll.title %></h3>
-	<%= poll.question %>
+	<%= simple_format(poll.question) %>
 	<br>
 	<!-- links to show, edit, public url -->
 	<%= link_to 'Show', poll %>
