@@ -1,1 +1,14 @@
 <h2>Polls Index</h2>
+
+<!-- link to new poll -->
+<%= link_to 'New Poll', new_poll_path %>
+
+<% @polls.each do |poll| %>
+	<h3><%= poll.title %></h3>
+	<%= poll.question %>
+	<br>
+	<!-- links to show, edit, public url -->
+	<%= link_to 'Show', poll %>
+	<%= link_to 'Edit', edit_poll_path(poll) %>
+	<%= link_to 'Public URL', poll %>
+<% end %>

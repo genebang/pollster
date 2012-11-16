@@ -1,0 +1,16 @@
+<%= form_for(@poll) do |f| %>
+	<% if @poll.errors.any? %>
+		<!-- error messages -->
+	<% end %>
+	
+	<div class="field">
+		<%= f.label :title %><br />
+		<%= f.text_field :title, class: 'span5' %><br />
+	</div>
+	<div class="field">
+		<%= f.label :question %><br />
+		<%= f.text_field :question, class: 'span5' %><br />
+	<div class="field">
+		<%= f.submit class: 'btn' %>
+	</div>
+<% end %>
