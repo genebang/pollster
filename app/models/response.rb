@@ -1,5 +1,6 @@
 class Response < ActiveRecord::Base
-  attr_accessible :poll_id, :response
+  attr_accessible :question_id, :response
   
-  belongs_to :poll
+  # belongs_to :question
+  
 end

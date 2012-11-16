@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121116014454) do
-
-  create_table "answers", :force => true do |t|
-    t.string   "answer"
-    t.integer  "poll_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121116061605) do
 
   create_table "polls", :force => true do |t|
     t.string   "title"
@@ -27,14 +20,20 @@ ActiveRecord::Schema.define(:version => 20121116014454) do
     t.datetime "updated_at", :null => false
     t.string   "admin_url"
     t.string   "public_url"
+  end
+
+  create_table "questions", :force => true do |t|
     t.text     "question"
+    t.integer  "poll_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "responses", :force => true do |t|
     t.text     "response"
-    t.integer  "poll_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "question_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

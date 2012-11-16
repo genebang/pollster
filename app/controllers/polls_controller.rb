@@ -12,8 +12,10 @@ class PollsController < ApplicationController
   end
   
   def show
+    # @poll = Poll.includes(:questions).find(params[:id])
     @poll = Poll.find(params[:id])
     #grab all poll questions
+    @questions = Question.find_all_by_poll_id(@poll.id)
   end
   
   def edit

@@ -6,10 +6,9 @@
 <% @polls.each do |poll| %>
 	<p>
 		<div><%= poll.title %></div>
-		<!-- <%= simple_format(poll.question) %> -->
 		<!-- links to show, edit, public url -->
-		<%= link_to 'Results', poll %>
+		<%= link_to 'Show', poll %>
 		<%= link_to 'Edit', edit_poll_path(poll) %>
-		<%= link_to 'Public URL', poll %>
+		<%#= link_to 'Public URL', poll %>
 	</p>
 <% end %>

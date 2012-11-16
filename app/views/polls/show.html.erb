@@ -1,12 +1,17 @@
 <h3>Show Poll</h3>
 
 <h4><%= @poll.title %></h4>
-<div>
-<%= simple_format(@poll.question) %>
-</div>
 
-<%= render @poll.responses %>
-
-<%= render 'responses/form' %>
+<%= link_to 'Add Question', new_poll_question_path(@poll) %>
+<%#= link_to 'Add Question', :controller => :questions, :action => :new, :poll_id => @poll.id %>
 
 <%= link_to 'Back', polls_path %>
+
+<div>
+	<% @questions.each do |question| %>
+		<p style="padding: 10px">
+			<%= simple_format(question.question) %><br>
+			<%= link_to 'Edit', edit_poll_question_path(@poll, question) %>
+		</p>
+	<% end %>
+</div>
