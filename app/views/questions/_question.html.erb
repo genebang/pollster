@@ -1,0 +1,8 @@
+<p>
+	<div>
+		<%= simple_format(question.question) %>
+	</div>
+	<%= link_to 'Edit', edit_poll_question_path(@poll, question) %>
+	<%= link_to 'Delete', poll_question_path(@poll, question), method: :delete, data: { confirm: "Are you sure?" }%>
+	<%#= render 'responses/form' %>
+</p>

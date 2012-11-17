@@ -16,6 +16,7 @@ class PollsController < ApplicationController
     @poll = Poll.find(params[:id])
     #grab all poll questions
     @questions = Question.find_all_by_poll_id(@poll.id)
+    # @responses = Response.find_all_by_question_id(@question.id)
   end
   
   def edit
@@ -49,7 +50,10 @@ class PollsController < ApplicationController
   def taker
     @poll = Poll.find(params[:id])
     #grab all poll questions
-    @questions = Question.find_all_by_poll_id(@poll.id)    
+    # @questions = Question.find_all_by_poll_id(@poll.id)
+    @questions = @poll.questions
+    @response = Response.new
+    # @responses = Response.find_all_by_question_id(@question.id)
   end
   
   

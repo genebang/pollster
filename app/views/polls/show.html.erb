@@ -7,7 +7,7 @@
 
 <%= link_to 'Back', polls_path %>
 
-<div>
+<!-- <div>
 	<% @questions.each do |question| %>
 		<p style="padding: 10px">
 			<%= simple_format(question.question) %><br>
@@ -16,4 +16,6 @@
 			<%#= link_to 'Delete', question, method: :delete, data: { confirm: "Are you sure?" }%>
 		</p>
 	<% end %>
-</div>
+</div> -->
+
+<%= render @poll.questions %>
