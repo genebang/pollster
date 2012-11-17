@@ -19,4 +19,18 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
   
+  def update
+    @poll = Poll.find(params[:poll_id])
+    @question = Question.find(params[:id])
+    @question.update_attributes(params[:question])
+    redirect_to @poll
+  end
+  
+  def destroy
+    # @poll = Poll.find(params[:poll_id])
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to @question.poll
+  end
+  
 end

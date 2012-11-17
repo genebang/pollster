@@ -3,9 +3,13 @@ Pollster::Application.routes.draw do
 
   root :to => "polls#index"
   
-  resources :polls do
-    resources :questions
+  resources :polls do 
+    resources :questions do 
+      resources :responses
+    end
   end
+  
+  get "taker/:id" => "polls#taker", :as => "taker"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

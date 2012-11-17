@@ -46,6 +46,13 @@ class PollsController < ApplicationController
     redirect_to @poll
   end
   
+  def taker
+    @poll = Poll.find(params[:id])
+    #grab all poll questions
+    @questions = Question.find_all_by_poll_id(@poll.id)    
+  end
+  
+  
   
   private
   

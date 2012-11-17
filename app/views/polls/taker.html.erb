@@ -1,0 +1,13 @@
+<h3>Taker</h3>
+
+<h4><%= @poll.title %></h4>
+
+<div>
+	<% @questions.each do |question| %>
+		<p style="padding: 10px">
+			<%= simple_format(question.question) %><br>
+			<%#= link_to 'Delete', question, method: :delete, data: { confirm: "Are you sure?" }%>
+			<%= render 'responses/form' %>
+		</p>
+	<% end %>
+</div>

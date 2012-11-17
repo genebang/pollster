@@ -9,6 +9,6 @@
 		<!-- links to show, edit, public url -->
 		<%= link_to 'Show', poll %>
 		<%= link_to 'Edit', edit_poll_path(poll) %>
-		<%#= link_to 'Public URL', poll %>
+		<%= link_to 'Public URL', taker_path(poll) %>
 	</p>
 <% end %>
