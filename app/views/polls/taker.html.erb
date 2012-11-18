@@ -2,7 +2,7 @@
 
 <h4><%= @poll.title %></h4>
 
-<div>
+<div id="fade">
 	<% @questions.each do |question| %>
 		<p style="padding: 10px">
 			<%= simple_format(question.question) %><br>

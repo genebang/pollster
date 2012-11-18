@@ -7,8 +7,8 @@
 	<p>
 		<div><%= poll.title %></div>
 		<!-- links to show, edit, public url -->
-		<%= link_to 'Show', poll %>
+		<%= link_to 'Show', poll_path(poll.admin_url) %>
 		<%= link_to 'Edit', edit_poll_path(poll) %>
-		<%= link_to 'Public URL', taker_path(poll) %>
+		<%= link_to 'Public URL', public_poll_path(poll.public_url) %>
 	</p>
 <% end %>

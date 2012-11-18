@@ -13,7 +13,8 @@ class PollsController < ApplicationController
   
   def show
     # @poll = Poll.includes(:questions).find(params[:id])
-    @poll = Poll.find(params[:id])
+    # @poll = Poll.find(params[:id])
+    @poll = Poll.find_by_admin_url(params[:admin_url])
     #grab all poll questions
     @questions = Question.find_all_by_poll_id(@poll.id)
     # @responses = Response.find_all_by_question_id(@question.id)
@@ -48,7 +49,8 @@ class PollsController < ApplicationController
   end
   
   def taker
-    @poll = Poll.find(params[:id])
+    # @poll = Poll.find(params[:id])
+    @poll = Poll.find_by_public_url(params[:public_url])
     #grab all poll questions
     # @questions = Question.find_all_by_poll_id(@poll.id)
     @questions = @poll.questions
@@ -56,6 +58,16 @@ class PollsController < ApplicationController
     # @responses = Response.find_all_by_question_id(@question.id)
   end
   
+  def public
+    @poll = Poll.find_by_public_url(params[:public_url])
+    redirect_to "http://localhost:3000/taker/#{@poll.public_url}"
+  end
+  
+  def admin
+    @poll = Poll.find_by_admin_url(params[:admin_url])
+    # redirect_to "http://localhost:3000/polls/#{@poll.admin_url}"
+  end
+
   
   
   private
