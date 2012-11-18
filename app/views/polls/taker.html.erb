@@ -8,7 +8,7 @@
 			<%= simple_format(question.question) %><br>
 			<%#= link_to 'Delete', question, method: :delete, data: { confirm: "Are you sure?" }%>
 			<%#= render 'responses/form' %>
-			<%= form_for [question, @response] do |f| %>
+			<%= form_for [@poll, question, @response] do |f| %>
 				<!-- add error checking -->
 				<div class="field">
 					<%= f.label :response %>
