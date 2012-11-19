@@ -4,7 +4,6 @@ class PollsController < ApplicationController
   
   def index
     @polls = Poll.all
-    # @polls = Poll.where(:user_id => current_user.id)
   end
   
   def new
@@ -12,22 +11,15 @@ class PollsController < ApplicationController
   end
   
   def show
-    # @poll = Poll.includes(:questions).find(params[:id])
-    # @poll = Poll.find(params[:id])
     @poll = Poll.find_by_admin_url(params[:admin_url])
-    #grab all poll questions
     @questions = Question.find_all_by_poll_id(@poll.id)
-    # @responses = Response.find_all_by_question_id(@question.id)
   end
   
   def edit
     @poll = Poll.find(params[:id])
-    #grab all poll questions
   end
   
   def create
-    # @poll = Poll.new(:title => params[:poll][:title],
-    #                  :user_id => current_user.id)
     @poll = Poll.new(params[:poll])
     @poll.admin_url = short_url
     @poll.public_url = short_url
@@ -49,13 +41,9 @@ class PollsController < ApplicationController
   end
   
   def taker
-    # @poll = Poll.find(params[:id])
     @poll = Poll.find_by_public_url(params[:public_url])
-    #grab all poll questions
-    # @questions = Question.find_all_by_poll_id(@poll.id)
     @questions = @poll.questions
     @response = Response.new
-    # @responses = Response.find_all_by_question_id(@question.id)
   end
   
   def public

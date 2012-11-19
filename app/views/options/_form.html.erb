@@ -1,0 +1,11 @@
+<% if true %>
+  no form for text based questions<br>
+<% else %>
+
+	<%= form_for [@poll, @question, @option = Option.new], :url => {:poll_id => @poll.id} do |f| %>
+		form for new multiple choice
+		<%= f.label "Multiple Choice Answer: " %>
+		<%= f.text_field :value %><br>
+		<%= f.submit class: 'btn' %>
+	<% end %>
+<% end %>

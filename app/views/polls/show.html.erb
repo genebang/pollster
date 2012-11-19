@@ -3,22 +3,19 @@
 <h4><%= @poll.title %></h4>
 
 <%= link_to 'Add Question', new_poll_question_path(@poll) %>
-<%#= link_to 'Add Question', :controller => :questions, :action => :new, :poll_id => @poll.id %>
-
+&nbsp;|&nbsp;
 <%= link_to 'Back', polls_path %>
 
 <div>
 	<% @questions.each do |question| %>
 		<p style="padding: 10px">
-			<%= simple_format(question.question) %><br>
+			<%= simple_format(question.question) %>
+			
 			<%= link_to 'Edit', edit_poll_question_path(@poll, question) %>
+			&nbsp;|&nbsp;
 			<%= link_to 'Delete', poll_question_path(@poll, question), method: :delete, data: { confirm: "Are you sure?" }%>
-			<%#= link_to 'Delete', question, method: :delete, data: { confirm: "Are you sure?" }%>
 			
-			<%= render question.responses %>
-			
+			<p><%= render question.responses %></p>
 		</p>
 	<% end %>
 </div>
-
-<%#= render @poll.questions %>
