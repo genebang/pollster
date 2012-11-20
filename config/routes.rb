@@ -2,23 +2,23 @@ Pollster::Application.routes.draw do
   devise_for :users
 
   root :to => "polls#index"
-  
-  match "polls/:admin_url" => "polls#show", :as => "admin_poll"
-  
+
+  match "admin/:admin_url" => "polls#show", :as => "admin_poll"
+
   match "taker/:public_url" => "polls#taker", :as => "public_poll"
-  
-  resources :polls do 
-    resources :questions do 
+
+  resources :polls do
+    resources :questions do
       resources :options, :responses
     end
   end
-  
+
   # get "taker/:id" => "polls#taker", :as => "taker"
-  
+
   # match "public/:public_url" => "polls#public", :as => "public"
-  # 
+  #
   # match "admin/:admin_url" => "polls#admin", :as => "admin"
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
