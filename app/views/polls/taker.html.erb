@@ -3,23 +3,23 @@
 <h4><%= @poll.title %></h4>
 
 <div id="fade">
-	<% @questions.each do |question| %>
-		<p style="padding: 10px">
-			<%= simple_format(question.question) %><br>
-			
-			<%= form_for [@poll, question, @response] do |f| %>
-				<!-- add error checking -->
-				
-				<div class="field">
-					<%= f.label :response %>
-					<%= f.text_area :response, rows: 3, class: 'span5' %>
-				</div>
-				<div class="field">
-					<%= f.submit class: 'btn' %>
-				</div>
-			<% end %>
-		</p>
-	<% end %>
+  <% @questions.each do |question| %>
+    <p style="padding: 10px">
+      <%= simple_format(question.question) %><br>
+
+      <%= form_for [@poll, question, question.responses.build] do |f| %>
+        <!-- add error checking -->
+
+        <div class="field">
+          <%= f.label :response %>
+          <%= f.text_area :response, rows: 3, class: 'span5' %>
+        </div>
+        <div class="field">
+          <%= f.submit class: 'btn' %>
+        </div>
+      <% end %>
+    </p>
+  <% end %>
 </div>
 
 <%#= render @poll.questions %>

@@ -3,9 +3,9 @@ Pollster::Application.routes.draw do
 
   root :to => "polls#index"
 
-  match "admin/:admin_url" => "polls#show", :as => "admin_poll"
+  match "admin/:id" => "polls#show", :as => "admin_poll"
 
-  match "taker/:public_url" => "polls#taker", :as => "public_poll"
+  match "taker/:public_url" => "polls#show", :as => "public_poll"
 
   resources :polls do
     resources :questions do
