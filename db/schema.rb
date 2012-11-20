@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118221410) do
+ActiveRecord::Schema.define(:version => 20121119004333) do
 
   create_table "options", :force => true do |t|
     t.string   "value"
@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(:version => 20121118221410) do
   create_table "questions", :force => true do |t|
     t.text     "question"
     t.integer  "poll_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.string   "style",      :default => "text"
   end
 
   create_table "responses", :force => true do |t|

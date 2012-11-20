@@ -1,4 +1,4 @@
-<% if true %>
+<% if @question.style == "text" %>
   no form for text based questions<br>
 <% else %>
 
@@ -6,6 +6,6 @@
 		form for new multiple choice
 		<%= f.label "Multiple Choice Answer: " %>
 		<%= f.text_field :value %><br>
-		<%= f.submit class: 'btn' %>
+		<%= f.submit "Add Option" %>
 	<% end %>
 <% end %>

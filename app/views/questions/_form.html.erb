@@ -6,7 +6,16 @@
 	<div class="field">
 		<%= f.label :question %><br />
 		<%= f.text_area :question, :rows => 8, class: 'span5' %><br />
+		<%#= f.select :style, [['Text','text'], ['Multiple Choice', 'multiple_choice'], ['Checkboxes','checkboxes']] %>
 	</div>
+	
+		<!-- needed for when this is a fully nested form 	
+				<%= f.fields_for :option do |builder| %>
+					<%= builder.label :value %>
+					<%= builder.text_field :value %>
+				<% end %>
+		-->
+	
 	<div class="field">
 		<%= f.submit class: 'btn' %>
 	</div>

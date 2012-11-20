@@ -11,7 +11,7 @@ class ResponsesController < ApplicationController
     @question = Question.find(params[:question_id])
     @response = @question.responses.build(params[:response])
     @response.save
-    redirect_to taker_path(@question.poll)
+    redirect_to public_poll_path(@question.poll.public_url)
   end
   
 end
