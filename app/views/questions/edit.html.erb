@@ -2,4 +2,8 @@
 
 <%= render 'form' %>
 
-<%= render 'options/form' %>
+<%= render @question.options %>
+
+<div class="choices">
+	<%= render 'options/form' %>
+</div>

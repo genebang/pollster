@@ -1,4 +1,4 @@
-<%= form_for [@poll, @question] do |f| %>
+<%= form_for [@poll, @question], :html => { :class => 'question_form' } do |f| %>
 	<% if @question.errors.any? %>
 		<!-- error messages -->
 	<% end %>
@@ -6,7 +6,7 @@
 	<div class="field">
 		<%= f.label :question %><br />
 		<%= f.text_area :question, :rows => 8, class: 'span5' %><br />
-		<%#= f.select :style, [['Text','text'], ['Multiple Choice', 'multiple_choice'], ['Checkboxes','checkboxes']] %>
+		<%= f.select :style, [['Text','text'], ['Multiple Choice', 'multiple_choice'], ['Checkboxes','checkboxes']] %>
 	</div>
 	
 		<!-- needed for when this is a fully nested form 	

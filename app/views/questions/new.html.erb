@@ -2,5 +2,8 @@
 
 <%= render 'form' %>
 
+<%#= render @question.options %>
 
-<%= render 'options/form'%>
+<div class="choices">
+	<%#= render 'options/form', :option => @question.options.build(params[:option]) %>
+</div>

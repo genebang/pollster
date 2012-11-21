@@ -1,11 +1,11 @@
-<% if @question.style == "text" %>
-  no form for text based questions<br>
+<%# if @question.style == "text" %>
+<% if false %>
 <% else %>
 
-	<%= form_for [@poll, @question, @option = Option.new], :url => {:poll_id => @poll.id} do |f| %>
-		form for new multiple choice
-		<%= f.label "Multiple Choice Answer: " %>
-		<%= f.text_field :value %><br>
-		<%= f.submit "Add Option" %>
+	<%#= form_for [@poll, @question, @option = Option.new], :url => {:poll_id => @poll.id} do |f| %>
+	<%= form_for Option.new, :url => {:controller => :options, :action => :create, :poll_id => @poll.id, :question_id => @question.id} do |f| %>
+		<%#= f.label "Option: " %>
+		<%= f.text_field :value %>
+		<%= f.submit "Add Option", :class => 'btn' %>
 	<% end %>
 <% end %>
