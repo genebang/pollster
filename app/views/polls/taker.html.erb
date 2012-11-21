@@ -7,7 +7,7 @@
     <p style="padding: 10px">
       <%= simple_format(question.question) %><br>
 
-      <%= form_for [@poll, question, question.responses.build] do |f| %>
+      <%= form_for [@poll, question, question.responses.build], :remote => true, :html => {:class => 'taker_response'} do |f| %>
         <!-- add error checking -->
 
         <div class="field">

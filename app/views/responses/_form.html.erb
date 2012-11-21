@@ -1,7 +1,7 @@
 <div>
 	Replies:
 </div>
-<%= form_for [question, @response] do |f| %>
+<%= form_for([question, @response], :remote => true, :class => 'response') do |f| %>
 	<!-- add error checking -->
 	<div class="field">
 		<%= f.text_area :response, rows: 3, class: 'span5' %>
