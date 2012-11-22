@@ -7,19 +7,28 @@
     <p style="padding: 10px">
       <%= simple_format(question.question) %><br>
 
-      <%= form_for [@poll, question, question.responses.build], :remote => true, :html => {:class => 'taker_response'} do |f| %>
-        <!-- add error checking -->
-
-        <div class="field">
-          <%= f.label :response %>
-          <%= f.text_area :response, rows: 3, class: 'span5' %>
-        </div>
-        <div class="field">
-          <%= f.submit :class => 'btn' %>
-        </div>
-      <% end %>
+	    <%= form_for [@poll, question, question.responses.build], :remote => true, :html => {:class => 'taker_response'} do |f| %>
+	
+				<% if question.style == "multiple_choice" %>
+					<div>
+						<%#= render question.options %>
+						<% options = question.options %>
+						<% options.each do |option| %>
+							<%= f.radio_button :response, option.value %>
+							<%= f.label :response, option.value %>
+						<% end %>
+					</div>
+				<% else %>
+	        <div class="field">
+	          <%= f.label :response %>
+	          <%= f.text_area :response, rows: 3, class: 'span5' %>
+	        </div>
+				<% end %>
+	      <div class="field">
+	        <%= f.submit "Submit Answer", :class => 'btn' %>
+	      </div>
+	
+	    <% end %>
     </p>
   <% end %>
 </div>
-
-<%#= render @poll.questions %>
