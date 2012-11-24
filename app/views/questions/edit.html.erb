@@ -2,8 +2,14 @@
 
 <%= render 'form' %>
 
-<%= render @question.options %>
+<div class="options_list">
+	<% myOptions = @question.options %>
+	<% myOptions.each do |option| %>
+		<%= render 'options/option', :option => option %>
+		<%#= render @question.options %>
+	<% end %>
+</div>
 
-<div class="choices">
+<div class="choices add_options">
 	<%= render 'options/form' %>
 </div>

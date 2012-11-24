@@ -5,7 +5,7 @@
 	<%#= form_for [@poll, @question, @option = Option.new], :url => {:poll_id => @poll.id} do |f| %>
 	<%= form_for Option.new, :remote => true, :url => {:controller => :options, :action => :create, :poll_id => @poll.id, :question_id => @question.id} do |f| %>
 		<%#= f.label "Option: " %>
-		<%= f.text_field :value %>
+		<%= f.text_field :value, :class => 'option_text_field' %>
 		<%= f.submit "Add Option", :class => 'btn' %>
 	<% end %>
 <% end %>

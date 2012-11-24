@@ -24,5 +24,17 @@ $(document).ready( function() {
         $('div.choices').show();
       }
   });
+  
+  // successful add of option
+  $('.add_options').on('ajax:success', 'form', function(event, data) {
+    $('.options_list').append(data.option);
+    $text_box = $('.option_text_field')
+    $text_box.val("");
+    $text_box.focus();
+  });
+  // error on add of option
+  $('.add_options').on('ajax:error', 'form', function(event, data) {
+    $('.options_list').append(data.responseText);
+  });
 
 });
