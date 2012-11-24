@@ -14,8 +14,16 @@
 						<%#= render question.options %>
 						<% options = question.options %>
 						<% options.each do |option| %>
-							<%= f.radio_button :response, option.value %>
-							<%= f.label :response, option.value %>
+							<table>
+								<tr>
+									<td>
+										<%= f.radio_button :response, option.value %>
+									</td>
+									<td>
+										<%= f.label :response, option.value %>
+									</td>
+								</tr>
+							</table>
 						<% end %>
 					</div>
 				<% else %>

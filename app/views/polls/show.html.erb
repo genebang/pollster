@@ -2,9 +2,11 @@
 
 <h4><%= @poll.title %></h4>
 
+<%= link_to 'Edit Poll Name', edit_poll_path(@poll) %>
+&nbsp;|&nbsp;
 <%= link_to 'Add Question', new_poll_question_path(@poll) %>
 &nbsp;|&nbsp;
-<%= link_to 'Back', polls_path %>
+<%= link_to 'Poll Index', polls_path %>
 
 <div>
 	<% @questions.each do |question| %>

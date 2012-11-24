@@ -38,7 +38,7 @@ class PollsController < ApplicationController
   def update
     @poll = Poll.find(params[:id])
     @poll.update_attributes(params[:poll])
-    redirect_to polls_path
+    redirect_to admin_poll_path(@poll.admin_url)
   end
 
   def destroy

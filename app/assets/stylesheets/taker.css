@@ -5,3 +5,7 @@
 .choicesOn {
     display: block;
 }
+
+.multiple_choice {
+    display: inline;
+}
