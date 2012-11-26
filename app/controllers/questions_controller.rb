@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.update_attributes(params[:question])
     # redirect_to @poll
-    redirect_to admin_poll_path(@poll.admin_url)
+    redirect_to admin_poll_path(@poll.admin_url), :notice => "question updated"
   end
 
   def destroy

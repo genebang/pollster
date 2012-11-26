@@ -8,7 +8,7 @@ class ResponsesController < ApplicationController
   def create
     @response = @question.responses.build(params[:response])
     if @response.save
-      redirect_to :back
+      redirect_to :back, :notice => "answer submitted"
     else
       render :back
     end

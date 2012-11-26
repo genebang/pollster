@@ -5,7 +5,7 @@
 <div id="fade">
   <% @questions.each do |question| %>
     <p style="padding: 10px">
-      <%= simple_format(question.question) %><br>
+      <%= simple_format(question.question) %>
 
 	    <%= form_for [@poll, question, question.responses.build], :remote => true, :html => {:class => 'taker_response'} do |f| %>
 	
@@ -13,18 +13,18 @@
 					<div>
 						<%#= render question.options %>
 						<% options = question.options %>
-						<% options.each do |option| %>
-							<table>
+						<table class="mc_question_table">
+							<% options.each do |option| %>
 								<tr>
-									<td>
+									<td class="mc_question_button">
 										<%= f.radio_button :response, option.value %>
 									</td>
-									<td>
+									<td class="mc_question_option">
 										<%= f.label :response, option.value %>
 									</td>
 								</tr>
-							</table>
-						<% end %>
+							<% end %>
+						</table>
 					</div>
 				<% else %>
 	        <div class="field">

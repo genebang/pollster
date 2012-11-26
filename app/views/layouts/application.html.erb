@@ -7,23 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="container">
+	
+<div class="wrapper">	
+	
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+		<div class="container">
+	    <a class="brand" href="/">Pollster</a>
+	    <ul class="nav">
+	      <li class="active"><a href="#">Home</a></li>
+	      <li><a href="#">Admin</a></li>
+	      <li><a href="#">Public</a></li>
+	    </ul>
+		</div>
+  </div>
+</div>
+
+<div class="container">
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
-	
-	<div id="account">
-		<!-- <% if current_user %>
-			<span>Welcome, <%= current_user.email %></span>
-			<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-		<% else %>
-			<%= link_to "Sign in", new_user_session_path %>
-		<% end %> -->
-	</div>
-<%= yield %>
 
-<%= debug params %>
+	<%= yield %>
+
+	<%#= debug params %>
 </div>
-<div id='footer'>
-</div>
+
+
 </body>
+
 </html>

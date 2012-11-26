@@ -4,11 +4,11 @@
 <%= link_to 'New Poll', new_poll_path(@poll) %>
 
 <% @polls.each do |poll| %>
-  <p>
-    <div><%= poll.title %></div>
+  <div class='poll_index'>
+    <div class='poll_title'><%= poll.title %></div>
     <!-- links to show, edit, public url -->
     <%= link_to 'Admin URL', admin_poll_path(poll.admin_url) %>
 		&nbsp;|&nbsp;
     <%= link_to 'Public URL', public_poll_path(poll.public_url) %>
-  </p>
+  </div>
 <% end %>

@@ -37,6 +37,7 @@ $(document).ready( function() {
     $('.options_list').append(data.responseText);
   });
   
+  // remove option from list
   $('a.remove_option').click(function() {
     //$(this).parent('p').fadeOut
     if (confirm("Are you sure")) {
@@ -48,5 +49,9 @@ $(document).ready( function() {
       return false;
     }
   });
-
+  
+  // hide alert/notice bar when empty
+  $('p.alert:empty').remove();
+  $('p.notice:empty').remove();
+  
 });
