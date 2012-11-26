@@ -1,6 +1,6 @@
-<p>
+<p class="remove_option">
 	OPTION
 	<%= option.value %>
-	<%= link_to "Remove", poll_question_option_path(option.question.poll, option.question, option.id), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+	<%= link_to "Remove", poll_question_option_path(option.question.poll, option.question, option.id), :method => :delete, :class => "remove_option", :remote => true %>
 	<%#= link_to "Remove", :controller => :options, :action => :destroy, :poll_id => option.question.poll_id, :question_id => option.question_id, :method => :delete, :data => { :confirm => "Are you sure?" } %>
 </p>

@@ -29,7 +29,9 @@ class OptionsController < ApplicationController
     @question = Question.find(params[:question_id])
     @option = Option.find(params[:id])
     @option.destroy
-    redirect_to edit_poll_question_path(@question.poll_id, @question.id)
+    # redirect_to :back
+    render edit_poll_question_path(@question.poll_id, @question.id)
+    # redirect_to edit_poll_question_path(@question.poll_id, @question.id)
     # redirect_to :url => { :controller => :questions, :action => :edit }
   end
   

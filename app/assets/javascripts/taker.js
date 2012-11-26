@@ -36,5 +36,17 @@ $(document).ready( function() {
   $('.add_options').on('ajax:error', 'form', function(event, data) {
     $('.options_list').append(data.responseText);
   });
+  
+  $('a.remove_option').click(function() {
+    //$(this).parent('p').fadeOut
+    if (confirm("Are you sure")) {
+      $option = $(this).parent();
+      $option.hide();
+      $.post($this.href, {method:"delete"}, null, "script");
+      return false;
+    } else {
+      return false;
+    }
+  });
 
 });
